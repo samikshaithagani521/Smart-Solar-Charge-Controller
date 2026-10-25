@@ -1,0 +1,67 @@
+"""
+build_mppt_enclosure_freecad.py - FreeCAD Parametric Builder Script
+Project: Smart Solar Charge Controller (VK26-IITH-SE-0098)
+How to run in FreeCAD:
+  1. Open FreeCAD -> File -> Open -> select this script (build_mppt_enclosure_freecad.py)
+  2. Click the green "Execute Macro" play button (or press Ctrl+F6)
+  3. It automatically creates the 3D Enclosure, Aluminium Heatsink, PCB, and Lid in the Model Tree,
+     and exports 'mppt_enclosure.step' in the same folder!
+"""
+import FreeCAD as App
+import Part
+
+doc = App.newDocument("MPPT_Enclosure_VK26")
+
+# 1. Lower Enclosure Base (140 x 95 x 45 mm, 3 mm wall thickness)
+outer_box = Part.makeBox(140.0, 95.0, 45.0, App.Vector(-70.0, -47.5, 0.0))
+inner_cavity = Part.makeBox(134.0, 89.0, 43.0, App.Vector(-67.0, -44.5, 3.0))
+flange_left = Part.makeBox(12.0, 70.0, 4.0, App.Vector(-82.0, -35.0, 0.0))
+flange_right = Part.makeBox(12.0, 70.0, 4.0, App.Vector(70.0, -35.0, 0.0))
+base_shell = outer_box.fuse(flange_left).fuse(flange_right).cut(inner_cavity)
+
+# Cut 3x PG9 Cable Gland Ports on Front Wall (PV, BAT, LOAD)
+for gx in [-32.0, 0.0, 32.0]:
+    hole = Part.makeCylinder(7.5, 10.0, App.Vector(gx, -50.0, 16.0), App.Vector(0, 1, 0))
+    base_shell = base_shell.cut(hole)
+
+obj_base = doc.addObject("Part::Feature", "Enclosure_Base_ABS_140x95x45mm")
+obj_base.Shape = base_shell
+
+# 2. Extruded 6063-T5 Aluminium Heatsink (55 x 18 x 22 mm, 9 Fins)
+hs_plate = Part.makeBox(55.0, 4.0, 22.0, App.Vector(5.0, 44.5, 12.0))
+for i in range(9):
+    fin = Part.makeBox(2.0, 14.0, 22.0, App.Vector(5.0 + i * 6.5, 48.5, 12.0))
+    hs_plate = hs_plate.fuse(fin)
+obj_hs = doc.addObject("Part::Feature", "Heatsink_Aluminium_9Fin")
+obj_hs.Shape = hs_plate
+
+# 3. Custom 2-Layer Controller PCB (120 x 80 x 1.6 mm) + Major Components
+pcb_board = Part.makeBox(120.0, 80.0, 1.6, App.Vector(-60.0, -40.0, 11.0))
+esp32_mod = Part.makeBox(26.0, 18.0, 4.5, App.Vector(-50.0, 10.0, 12.6))
+toroid_l1 = Part.makeCylinder(13.0, 12.0, App.Vector(28.0, 14.0, 12.6))
+pcb_assy = pcb_board.fuse(esp32_mod).fuse(toroid_l1)
+obj_pcb = doc.addObject("Part::Feature", "Controller_PCB_120x80mm_Assy")
+obj_pcb.Shape = pcb_assy
+
+# 4. Top Weatherproof Polycarbonate Lid + LED Window (Exploded Z = +62 mm)
+lid_outer = Part.makeBox(140.0, 95.0, 8.0, App.Vector(-70.0, -47.5, 62.0))
+led_win = Part.makeBox(28.0, 12.0, 12.0, App.Vector(-48.0, -25.0, 60.0))
+obj_lid = doc.addObject("Part::Feature", "Top_Lid_IP65_With_LED_Window")
+obj_lid.Shape = lid_outer.cut(led_win)
+
+doc.recompute()
+
+try:
+    import FreeCADGui as Gui
+    Gui.ActiveDocument.ActiveView.viewIsometric()
+    Gui.SendMsgToMainWindow("ViewFit")
+    Gui.ActiveDocument.getObject("Enclosure_Base_ABS_140x95x45mm").ShapeColor = (0.25, 0.31, 0.39)
+    Gui.ActiveDocument.getObject("Heatsink_Aluminium_9Fin").ShapeColor = (0.78, 0.82, 0.86)
+    Gui.ActiveDocument.getObject("Controller_PCB_120x80mm_Assy").ShapeColor = (0.08, 0.48, 0.24)
+    Gui.ActiveDocument.getObject("Top_Lid_IP65_With_LED_Window").ShapeColor = (0.35, 0.42, 0.52)
+    Gui.ActiveDocument.getObject("Top_Lid_IP65_With_LED_Window").Transparency = 45
+except Exception:
+    pass
+
+Part.export([obj_base, obj_hs, obj_pcb, obj_lid], "mppt_enclosure.step")
+print("Successfully built 3D model and exported mppt_enclosure.step!")
