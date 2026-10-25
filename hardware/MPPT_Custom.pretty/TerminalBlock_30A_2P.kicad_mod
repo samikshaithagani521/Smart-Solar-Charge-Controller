@@ -1,0 +1,80 @@
+(footprint "TerminalBlock_30A_2P"
+		
+		
+		(at 0 0)
+		(property "Reference" "REF**"
+			(at 0 -5 0)
+			(layer "F.SilkS")
+			(uuid "91c92ded-a305-4507-b716-0bc58c0554e0")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+			)
+		)
+		(property "Value" "TerminalBlock_30A_2P"
+			(at 0 5 0)
+			(layer "F.Fab")
+			(uuid "dd4004eb-382a-4097-a40e-6da854c4fd45")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "27e2ca90-e7b7-45bd-b981-6d79ca812213")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "33b8a9d0-4ff8-4960-a053-8c838fc3d928")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_rect
+			(start -6 -3.5)
+			(end 6 3.5)
+			(stroke
+				(width 0.15)
+				(type default)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "544fb9c3-798c-4077-b018-d4233604d35e")
+		)
+		(pad "1" thru_hole rect
+			(at -2.5 0)
+			(size 3.2 3.2)
+			(drill 1.6)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "47333dbc-026f-4951-9d6a-1d7d5b143402")
+		)
+		(pad "2" thru_hole circle
+			(at 2.5 0)
+			(size 3.2 3.2)
+			(drill 1.6)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "47c44f61-544b-46a4-a52f-43d607dd76bb")
+		)
+		(embedded_fonts no)
+	)

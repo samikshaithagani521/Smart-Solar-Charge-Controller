@@ -1,0 +1,89 @@
+(footprint "TO220_3_Schottky_60V_20A"
+		
+		
+		(at 0 0)
+		(property "Reference" "REF**"
+			(at 2.54 -4.5 0)
+			(layer "F.SilkS")
+			(uuid "40e23faa-fdcc-464b-8f04-f8f9fa914d0e")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+			)
+		)
+		(property "Value" "TO220_3_Schottky_60V_20A"
+			(at 2.54 4.5 0)
+			(layer "F.Fab")
+			(uuid "19c2276f-537e-40c8-992d-815fe8393546")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7007e678-6e73-4539-bf67-547f9ffceb0e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a4dd6be0-185b-4d0b-9df7-995a909ab2b4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_rect
+			(start -2.5 -2.5)
+			(end 7.6 2.5)
+			(stroke
+				(width 0.15)
+				(type default)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "019d4b52-f728-434e-9534-5afd10692f78")
+		)
+		(pad "1" thru_hole rect
+			(at 0 0)
+			(size 2.2 2.2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "109de49d-4fa2-4ab8-8878-539d9d3da1cb")
+		)
+		(pad "2" thru_hole circle
+			(at 2.54 0)
+			(size 2.2 2.2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "bde89a78-f0bf-42df-a1fe-5721e63abaf6")
+		)
+		(pad "3" thru_hole circle
+			(at 5.08 0)
+			(size 2.2 2.2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "7269ba19-1db3-4a8e-ae6c-7cfd29d556e9")
+		)
+		(embedded_fonts no)
+	)

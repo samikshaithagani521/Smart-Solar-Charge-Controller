@@ -1,0 +1,76 @@
+(footprint "ESP32_WROOM_32E_And_Driver"
+		
+		
+		(at 0 0)
+		(property "Reference" "REF**"
+			(at 0 -12 0)
+			(layer "F.SilkS")
+			(uuid "a8437471-e1e4-4e64-8596-4bff1f69505e")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+			)
+		)
+		(property "Value" "ESP32_WROOM_32E_And_Driver"
+			(at 0 12 0)
+			(layer "F.Fab")
+			(uuid "3bfd084a-0059-4dc7-b6d3-f5b1d9bbbf91")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b0aa30c7-462f-4f19-8898-51aa6fd8e492")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "12e46129-b137-4547-b027-e0fa56600f80")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_rect
+			(start -10 -10)
+			(end 8.5 10)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "19a2cd33-6b57-4b41-86b5-c5ac9e517ef4")
+		)
+		(pad "1" smd rect
+			(at 10 -4)
+			(size 2 1.2)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			
+			(uuid "bc0d7543-0549-4aac-8113-ecdef97115de")
+		)
+		(pad "2" smd rect
+			(at 10 4)
+			(size 2 1.2)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			
+			(uuid "4edb47ae-46b4-47e4-a8a8-2780a91da028")
+		)
+		(embedded_fonts no)
+	)

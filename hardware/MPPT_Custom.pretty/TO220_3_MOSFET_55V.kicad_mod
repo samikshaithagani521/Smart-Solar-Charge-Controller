@@ -1,0 +1,89 @@
+(footprint "TO220_3_MOSFET_55V"
+		
+		
+		(at 0 0)
+		(property "Reference" "REF**"
+			(at 2.54 -4.5 0)
+			(layer "F.SilkS")
+			(uuid "63d440bb-f8a3-4742-a824-719cc217f30f")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+			)
+		)
+		(property "Value" "TO220_3_MOSFET_55V"
+			(at 2.54 4.5 0)
+			(layer "F.Fab")
+			(uuid "d4b3f6d2-865a-4338-b414-bcc946d99203")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6e5f3470-4934-4b22-93e9-f076c4075696")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bd9b3557-5aa0-46bc-a305-616d2b481400")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_rect
+			(start -2.5 -2.5)
+			(end 7.6 2.5)
+			(stroke
+				(width 0.15)
+				(type default)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "aefdfd42-0c96-412a-83e3-e595383c9585")
+		)
+		(pad "1" thru_hole rect
+			(at 0 0)
+			(size 2 2)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "e648ea5c-4fd8-4bf0-ae76-de01e8a427a0")
+		)
+		(pad "2" thru_hole circle
+			(at 2.54 0)
+			(size 2.2 2.2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "91315fe8-d42a-4263-985e-6a3cfd7753c5")
+		)
+		(pad "3" thru_hole circle
+			(at 5.08 0)
+			(size 2.2 2.2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			
+			(uuid "7890e985-a6fc-4a9d-b90f-116f9f559f04")
+		)
+		(embedded_fonts no)
+	)
